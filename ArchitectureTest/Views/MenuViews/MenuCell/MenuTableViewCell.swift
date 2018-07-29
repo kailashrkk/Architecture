@@ -10,10 +10,9 @@ import UIKit
 
 class MenuTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellTitle: UILabel!{
         didSet{
-            print("\(cellTitle?.text)");
+           
         }
     }
     
