@@ -8,10 +8,7 @@
 
 import UIKit
 
-class MenuTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
-    
-    var menuOptions = ["Profile","Chat","Terms & Conditions","Help"];
-
+class MenuTableView: UITableView{
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -19,24 +16,13 @@ class MenuTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
         // Drawing code
     }
     */
+    var cell = MenuTableViewCell()
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style);
-        print("intbl");
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    //MARK: TableViewDelegateMethods
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuOptions.count;
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = MenuTableViewCell(style: .default, reuseIdentifier: "MenuCell")
-        cell.cellTitle.text = menuOptions[indexPath.row];
-        print("incfr");
-        return cell
-    }
+
 }
