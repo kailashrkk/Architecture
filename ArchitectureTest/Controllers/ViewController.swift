@@ -8,18 +8,23 @@
 
 import UIKit
 import SafariServices
+import MapKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverControllerDelegate, MKMapViewDelegate{
     var menuView: MenuTableView?;
     var isMenuVisible = false;
-    var menuOptions = ["Profile","Chat","Terms","Help"];
+    var menuOptions = Menu.menuType.all;
     var nextVC = NextViewController()
+    var map: MKMapView?;
     @IBOutlet weak var ada: UIActivityIndicatorView!
     @IBOutlet weak var menuBtn: UIBarButtonItem!
     //MARK: View Controller Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        ada.hidesWhenStopped = true;
         initMenuTable()
+        initMapView()
+        self.view.bringSubview(toFront: ada);
         ada.startAnimating()
         //nextVC = NextViewController()
     }
@@ -34,6 +39,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func searchBtnTapped(_ sender: UIBarButtonItem) {
+//        let pop = UIPopoverController(contentViewController: self);
+//        pop.delegate = self
+//        pop.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1);
+//        pop.present(from: sender, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true);
+       // self.present(pop, animated: true, completion: nil);
+        var myLoc = MKPointAnnotation()
+        myLoc.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(exactly: 40.754931)!, longitude: CLLocationDegrees(exactly: -73.984019)!)
+        var myannotation = [MKPointAnnotation]()
+        myannotation.append(myLoc);
+        ada.stopAnimating();
+        map?.showAnnotations(myannotation, animated: true);
+        
     }
     //MARK: Private Methods
     private func toggleMenu(){
@@ -75,6 +92,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.present(sfvc, animated: true);
     }
     
+    private func initMapView(){
+        map = MKMapView(frame: self.view.bounds);
+        map?.mapType = .standard;
+        map?.delegate = self;
+        self.view.addSubview(map!);
+    }
+    
     //MARK: TableViewDelegateMethods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.menuOptions.count;
@@ -82,7 +106,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.menuView?.dequeueReusableCell(withIdentifier: "MenuCell") as! MenuTableViewCell
-        cell.cellTitle.text = menuOptions[indexPath.row];
+        cell.cellTitle.text = menuOptions[indexPath.row].rawValue;
         print("\(cell)");
         return cell
     }
@@ -90,16 +114,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = menuOptions[indexPath.row];
         switch index {
-        case "Profile":
-            initMenuNextVC(withTitle: index);
-        case "Chat":
-            initMenuNextVC(withTitle: index);
-        case "Terms":
-            initTermsVC(withTitle: index);
-        case "Help":
-            initMenuNextVC(withTitle: index);
-        default:
-            break;
+        case Menu.menuType.Profile:
+            initMenuNextVC(withTitle: index.rawValue);
+        case Menu.menuType.Chat:
+            initMenuNextVC(withTitle: index.rawValue);
+        case Menu.menuType.Terms:
+            initTermsVC(withTitle: index.rawValue);
+        case Menu.menuType.Logout:
+            initMenuNextVC(withTitle: index.rawValue);
         }
     }
 }
