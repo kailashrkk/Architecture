@@ -10,6 +10,8 @@
 		4A51FD5D210E1C0B00AA8527 /* NextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A51FD5C210E1C0B00AA8527 /* NextVC.swift */; };
 		4A51FD5F210E2F7E00AA8527 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A51FD5E210E2F7E00AA8527 /* Constants.swift */; };
 		4A51FD61210E32A300AA8527 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A51FD60210E32A300AA8527 /* MenuModel.swift */; };
+		4A51FD65210EBB7400AA8527 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A51FD64210EBB7400AA8527 /* APIClient.swift */; };
+		4A51FD67210EBF0C00AA8527 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A51FD66210EBF0C00AA8527 /* MovieModel.swift */; };
 		4AEE8155210BE0C7008DF102 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE8154210BE0C7008DF102 /* AppDelegate.swift */; };
 		4AEE8157210BE0C7008DF102 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEE8156210BE0C7008DF102 /* ViewController.swift */; };
 		4AEE815A210BE0C7008DF102 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEE8158210BE0C7008DF102 /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 		4A51FD5C210E1C0B00AA8527 /* NextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextVC.swift; sourceTree = "<group>"; };
 		4A51FD5E210E2F7E00AA8527 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		4A51FD60210E32A300AA8527 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
+		4A51FD64210EBB7400AA8527 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		4A51FD66210EBF0C00AA8527 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		4AEE8151210BE0C7008DF102 /* ArchitectureTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArchitectureTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AEE8154210BE0C7008DF102 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AEE8156210BE0C7008DF102 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				4A51FD5E210E2F7E00AA8527 /* Constants.swift */,
+				4A51FD64210EBB7400AA8527 /* APIClient.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				4A51FD60210E32A300AA8527 /* MenuModel.swift */,
+				4A51FD66210EBF0C00AA8527 /* MovieModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,9 +236,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A51FD67210EBF0C00AA8527 /* MovieModel.swift in Sources */,
 				4AEE8157210BE0C7008DF102 /* ViewController.swift in Sources */,
 				4AEE816C210BE333008DF102 /* MenuTableView.swift in Sources */,
 				4AEE8170210BE4A7008DF102 /* MenuTableViewCell.swift in Sources */,
+				4A51FD65210EBB7400AA8527 /* APIClient.swift in Sources */,
 				4A51FD61210E32A300AA8527 /* MenuModel.swift in Sources */,
 				4A51FD5D210E1C0B00AA8527 /* NextVC.swift in Sources */,
 				4AEE8155210BE0C7008DF102 /* AppDelegate.swift in Sources */,
